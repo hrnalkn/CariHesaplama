@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="carihesapModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Kategoriler">
+    <Key>
+      <PropertyRef Name="KategoriId" />
+    </Key>
+    <Property Name="KategoriId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Kategori" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="Aciklama" Type="nvarchar" MaxLength="40" Nullable="false" />
+    <Property Name="KayitTarih" Type="datetime" Nullable="false" />
+    <Property Name="AktifMi" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Kullanicilar">
+    <Key>
+      <PropertyRef Name="KullaniciId" />
+    </Key>
+    <Property Name="KullaniciId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="KullaniciAd" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="Sifre" Type="nvarchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Musteriler">
+    <Key>
+      <PropertyRef Name="müsteriId" />
+    </Key>
+    <Property Name="müsteriId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Ad" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="Soyad" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="Tel" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="Adres" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="KayitTarihi" Type="datetime" Nullable="false" />
+    <Property Name="AktifMi" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Satislar">
+    <Key>
+      <PropertyRef Name="SatisId" />
+    </Key>
+    <Property Name="SatisId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UrunId" Type="int" Nullable="false" />
+    <Property Name="MusteriId" Type="int" Nullable="false" />
+    <Property Name="Adet" Type="int" Nullable="false" />
+    <Property Name="Tarih" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Urunler">
+    <Key>
+      <PropertyRef Name="UrunId" />
+    </Key>
+    <Property Name="UrunId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UrunAdi" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="KategoriId" Type="int" Nullable="false" />
+    <Property Name="AlisFiyat" Type="int" Nullable="false" />
+    <Property Name="SatisFiyat" Type="int" Nullable="false" />
+    <Property Name="Stok" Type="int" Nullable="false" />
+    <Property Name="Aciklama" Type="nvarchar" MaxLength="40" Nullable="false" />
+    <Property Name="KayitTarihi" Type="datetime" Nullable="false" />
+    <Property Name="AktifMi" Type="bit" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Satislar_Musteriler">
+    <End Role="Musteriler" Type="Self.Musteriler" Multiplicity="1" />
+    <End Role="Satislar" Type="Self.Satislar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Musteriler">
+        <PropertyRef Name="müsteriId" />
+      </Principal>
+      <Dependent Role="Satislar">
+        <PropertyRef Name="MusteriId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Satislar_Urunler">
+    <End Role="Urunler" Type="Self.Urunler" Multiplicity="1" />
+    <End Role="Satislar" Type="Self.Satislar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Urunler">
+        <PropertyRef Name="UrunId" />
+      </Principal>
+      <Dependent Role="Satislar">
+        <PropertyRef Name="UrunId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Urunler_Kategoriler">
+    <End Role="Kategoriler" Type="Self.Kategoriler" Multiplicity="1" />
+    <End Role="Urunler" Type="Self.Urunler" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Kategoriler">
+        <PropertyRef Name="KategoriId" />
+      </Principal>
+      <Dependent Role="Urunler">
+        <PropertyRef Name="KategoriId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="carihesapModelStoreContainer">
+    <EntitySet Name="Kategoriler" EntityType="Self.Kategoriler" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Kullanicilar" EntityType="Self.Kullanicilar" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Musteriler" EntityType="Self.Musteriler" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Satislar" EntityType="Self.Satislar" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Urunler" EntityType="Self.Urunler" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Satislar_Musteriler" Association="Self.FK_Satislar_Musteriler">
+      <End Role="Musteriler" EntitySet="Musteriler" />
+      <End Role="Satislar" EntitySet="Satislar" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Satislar_Urunler" Association="Self.FK_Satislar_Urunler">
+      <End Role="Urunler" EntitySet="Urunler" />
+      <End Role="Satislar" EntitySet="Satislar" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Urunler_Kategoriler" Association="Self.FK_Urunler_Kategoriler">
+      <End Role="Kategoriler" EntitySet="Kategoriler" />
+      <End Role="Urunler" EntitySet="Urunler" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

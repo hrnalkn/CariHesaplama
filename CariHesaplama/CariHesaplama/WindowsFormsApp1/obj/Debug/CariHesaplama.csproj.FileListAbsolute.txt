@@ -1,0 +1,15 @@
+C:\Users\harun\Desktop\CariHesaplama\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe.config
+C:\Users\harun\Desktop\CariHesaplama\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe
+C:\Users\harun\Desktop\CariHesaplama\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.pdb
+C:\Users\harun\Desktop\CariHesaplama\WindowsFormsApp1\bin\Debug\EntityFramework.dll
+C:\Users\harun\Desktop\CariHesaplama\WindowsFormsApp1\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\harun\Desktop\CariHesaplama\WindowsFormsApp1\bin\Debug\EntityFramework.xml
+C:\Users\harun\Desktop\CariHesaplama\WindowsFormsApp1\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\harun\Desktop\CariHesaplama\WindowsFormsApp1\obj\Debug\CariHesaplama.csprojAssemblyReference.cache
+C:\Users\harun\Desktop\CariHesaplama\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Form1.resources
+C:\Users\harun\Desktop\CariHesaplama\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Form2.resources
+C:\Users\harun\Desktop\CariHesaplama\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Properties.Resources.resources
+C:\Users\harun\Desktop\CariHesaplama\WindowsFormsApp1\obj\Debug\CariHesaplama.csproj.GenerateResource.cache
+C:\Users\harun\Desktop\CariHesaplama\WindowsFormsApp1\obj\Debug\CariHesaplama.csproj.CopyComplete
+C:\Users\harun\Desktop\CariHesaplama\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe
+C:\Users\harun\Desktop\CariHesaplama\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb
